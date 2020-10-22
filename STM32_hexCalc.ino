@@ -252,7 +252,7 @@ void dvmFrame(byte x){tft.fillScreen(ST7735_BLACK); tft.drawRect(0,0,159,127,ST7
                 switch (x) {
                  case 61: { tft.print("Voltmeter"); break;}
                  case 35: { tft.print("Beeper"); tft.setTextSize(1);tft.setCursor(8,114); tft.print("Output 1mA"); break; }
-                 case 38: { tft.print("Scanner"); break; } 
+                 case 38: { tft.setCursor(70,10); tft.print("Scanner"); break; } 
                  case '+': {tft.setTextSize(1);tft.print("Samples "); break;}
       }               
   }
@@ -278,7 +278,7 @@ void calFrame(void) {
 
 void sound(void){
    
-    int dcval=analogRead(PA0); dcval/=186; 
+    int dcval=analogRead(PA1); dcval/=20; 
     if ((stat & 0x04)) {
     if (dcval>21) dcval=21; 
     if (dcval < 7) fr=freq[dcval]/2;
